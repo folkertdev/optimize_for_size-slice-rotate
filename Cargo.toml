@@ -1,0 +1,25 @@
+[package]
+name = "slice-rotate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.0"
+
+[dev-dependencies]
+quickcheck = { version = "1.0.3", default-features = false, features = [] }
+
+[profile.release]
+lto = true
+debug = true
+opt-level = "z"
+panic = "abort"
+codegen-units = 1
+incremental = false
+
+[features]
+left-std = []
+right-std = []
+left-size = []
+right-size = []
